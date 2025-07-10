@@ -1,54 +1,96 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.net.*" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>KK FUNDA Home Page</title>
-<link href="images/kkfunda.jpg" rel="icon">
-</head>
+<link rel="icon" href="images/kkfunda.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #f0f8ff;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color: #1e90ff;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    .content {
+        padding: 20px;
+        text-align: center;
+    }
+    .info-box {
+        background: #ffffff;
+        border: 2px solid #1e90ff;
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 600px;
+        margin: 20px auto;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    footer {
+        background-color: #1e90ff;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    img {
+        width: 100px;
+    }
+    a {
+        color: #ffffff;
+        text-decoration: underline;
+    }
+</style>
 </head>
 <body>
-<h1 align="center">Welcome to KK DevOps</h1>
-<h1 align="center"> KK DEVOPS WITH AWS AND SRE IN TELUGU </h1>
-<hr>
-<br>
-	<h1><h3> Server Side IP Address </h3><br>
 
-<% 
-String ip = "";
-InetAddress inetAddress = InetAddress.getLocalHost();
-ip = inetAddress.getHostAddress();
-out.println("Server Host Name :: "+inetAddress.getHostName()); 
-%>
-<br>
-<%out.println("Server IP Address :: "+ip);%>
-</h1>
-<br>
-<h1><h3> Client Side IP Address </h3><br>
-<%out.print( "Client IP Address :: " + request.getRemoteAddr() ); %><br>
-<%out.print( "Client Name Host :: "+ request.getRemoteHost() );%><br></h1>
-<hr>
-<div style="text-align: center;">
-	<span>
-		<img src="images/kkfunda.jpg" alt="" width="100">
-	</span>
-	<span style="font-weight: bold;">
-		KK FUNDA, 
-		Martha Halli, Banglore,
-		Bangalore,
-		+91-9676831734,+91-9676831734
-		kkeducationblr@gmail.com
-		<br>
-		<a href="mailto:kkeducation@gmail.com">Mail to KK FUNDA</a>
-	</span>
+<header>
+    <h1>Welcome to KK DevOps</h1>
+    <h2>KK DEVOPS WITH AWS AND SRE IN TELUGU</h2>
+</header>
+
+<div class="content">
+
+    <div class="info-box">
+        <h3>Server Side IP Address</h3>
+        <% 
+            InetAddress inetAddress = InetAddress.getLocalHost();
+            String ip = inetAddress.getHostAddress();
+        %>
+        <p>Server Host Name: <strong><%= inetAddress.getHostName() %></strong></p>
+        <p>Server IP Address: <strong><%= ip %></strong></p>
+
+        <h3>Client Side IP Address</h3>
+        <p>Client IP Address: <strong><%= request.getRemoteAddr() %></strong></p>
+        <p>Client Host Name: <strong><%= request.getRemoteHost() %></strong></p>
+    </div>
+
+    <div>
+        <img src="images/kkfunda.jpg" alt="KK FUNDA Logo">
+        <p><strong>KK FUNDA</strong><br>
+        Martha Halli, Bangalore<br>
+        +91-9676831734<br>
+        <a href="mailto:kkeducationblr@gmail.com">Mail to KK FUNDA</a></p>
+    </div>
+
+    <p>Service: <a href="services/employee/getEmployeeDetails">Get Employee Details</a></p>
+
 </div>
-<hr>
-	<p> Service : <a href="services/employee/getEmployeeDetails">Get Employee Details </p>
-<hr>
-<hr>
-<p align=center>KK FUNDA Training, Development Center.</p>
-<p align=center><small>Copyrights 2024 by <a href="google.com/">KK FUNDA</a> </small></p>
+
+<footer>
+    KK FUNDA Training, Development Center.<br>
+    <small>© 2024 by KK FUNDA</small>
+</footer>
 
 </body>
 </html>
